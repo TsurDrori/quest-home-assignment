@@ -1,0 +1,53 @@
+<div *ngIf="error$ | async as errorMessage" class="error-message alert alert-danger" role="alert">
+  ⚠️ {{ errorMessage }}
+</div>
+
+<div class="dashboard-container">
+
+  <div class="workers-section card shadow-sm">
+    <div class="card-header">
+      <h2>Workers</h2>
+      <div *ngIf="isLoadingWorkers$ | async" class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <app-workers-list [workers]="workers$ | async" (workerSelected)="onWorkerSelect($event)">
+        <ng-template #noWorkers>
+          <p class="text-muted fst-italic">No workers found or failed to load.</p>
+        </ng-template>
+      </app-workers-list>
+    </div>
+  </div>
+
+  <div class="flights-section card shadow-sm">
+    <div class="card-header">
+      <h2>Flights</h2>
+      <div *ngIf="isLoadingFlights$ | async" class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <app-flights-table [flights]="flights$ | async" [selectedFlight]="selectedFlight$ | async"
+        (flightSelected)="onFlightSelect($event)">
+        <ng-template #noFlights>
+          <p class="text-muted fst-italic">Select a worker to view their flights.</p>
+        </ng-template>
+      </app-flights-table>
+    </div>
+  </div>
+
+  <div class="details-section card shadow-sm">
+    <div class="card-header">
+      <h2>Flight Details</h2>
+    </div>
+    <div class="card-body">
+      <app-flight-details [flight]="selectedFlight$ | async">
+        <ng-template #noFlightSelected>
+          <p class="text-muted fst-italic">Select a flight from the table to see details.</p>
+        </ng-template>
+      </app-flight-details>
+    </div>
+  </div>
+
+</div>

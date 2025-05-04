@@ -1,0 +1,95 @@
+:host {
+  display: block; // Ensure component takes block space
+  font-size: 0.9rem; // Slightly smaller base font size for details section
+}
+
+.flight-details-content {
+  padding: 0.5rem; // Add some internal padding
+
+  h4 {
+    margin-bottom: 0.75rem; // Space below the heading
+    font-weight: 600; // Bolder heading
+    font-size: 1.1rem; // Slightly larger heading font size
+    color: var(--primary-color, #0d6efd); // Use primary color for heading
+  }
+
+  hr {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border-top-color: rgba(0, 0, 0, 0.1); // Lighter separator line
+  }
+
+  // Styling for the definition list used for layout
+  dl.row {
+    margin-bottom: 0; // Remove default bottom margin from dl
+
+    // Styling for Definition Term (Label)
+    dt {
+      font-weight: 500; // Medium weight for labels (fw-medium class in HTML)
+      color: #495057; // Slightly darker grey for labels
+      padding-top: 0.25rem; // Align label baseline with value
+      padding-bottom: 0.25rem;
+      // text-end class in HTML handles alignment
+    }
+
+    // Styling for Definition Description (Value)
+    dd {
+      margin-bottom: 0.5rem; // Space below each key-value pair
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      color: #212529; // Standard text color for values
+    }
+  }
+
+  // --- Grid Layout Classes (used in HTML template) ---
+  // These replicate basic Bootstrap grid column behavior for the dl.row
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    // Negative margins are part of Bootstrap's gutter system, adjust if not using BS
+    margin-right: -0.25rem; // Corresponds to g-2 gutter (0.5rem / 2)
+    margin-left: -0.25rem;
+  }
+
+  .row>* {
+    // Apply padding to direct children of row for gutters
+    padding-right: 0.25rem; // Corresponds to g-2 gutter
+    padding-left: 0.25rem;
+  }
+
+  // Column width classes (adjust percentages if needed)
+  // col-5 corresponds to 5/12 width ~ 41.67%
+  .col-5 {
+    flex: 0 0 auto;
+    width: 41.66666667%;
+  }
+
+  // col-7 corresponds to 7/12 width ~ 58.33%
+  .col-7 {
+    flex: 0 0 auto;
+    width: 58.33333333%;
+  }
+
+  // Text alignment and font weight utilities (used in HTML)
+  .text-end {
+    text-align: right !important;
+  }
+
+  .fw-medium {
+    font-weight: 500 !important;
+  }
+
+}
+
+// Utility classes used in the template's fallback message
+.text-muted {
+  color: var(--text-muted-color, #6c757d) !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.fst-italic {
+  font-style: italic !important;
+}

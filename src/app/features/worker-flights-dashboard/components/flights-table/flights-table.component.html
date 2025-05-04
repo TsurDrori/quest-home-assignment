@@ -1,0 +1,32 @@
+<div *ngIf="flights && flights.length > 0; else noFlightsContent" class="table-responsive">
+  <table class="table table-hover table-striped table-sm caption-top">
+    <caption>List of flights</caption>
+    <thead class="table-light">
+      <tr>
+        <th scope="col">Flight #</th>
+        <th scope="col">Origin</th>
+        <th scope="col">Origin Date</th>
+        <th scope="col">Destination</th>
+        <th scope="col">Destination Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of flights; trackBy: trackByFlightId" (click)="selectFlight(flight)"
+        [class.table-active]="isSelected(flight)" style="cursor: pointer;">
+        <td>{{ flight.num }}</td>
+        <td>{{ flight.from }}</td>
+        <td>{{ flight.from_date }}</td>
+        <td>{{ flight.to }}</td>
+        <td>{{ flight.to_date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #noFlightsContent>
+  <ng-container *ngTemplateOutlet="noFlightsTemplate || defaultNoFlights"></ng-container>
+</ng-template>
+
+<ng-template #defaultNoFlights>
+  <p class="text-muted p-2 fst-italic">No flights to display for the selected worker.</p>
+</ng-template>

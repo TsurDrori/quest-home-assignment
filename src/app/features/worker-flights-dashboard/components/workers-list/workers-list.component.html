@@ -1,0 +1,13 @@
+<div *ngIf="workers && workers.length > 0; else noWorkersContent" class="list-group">
+  <button *ngFor="let worker of workers; trackBy: trackByWorkerId" type="button"
+    class="list-group-item list-group-item-action" [class.active]="worker.id === selectedWorkerId"
+    (click)="selectWorker(worker.id)"> {{ worker.name }} </button>
+</div>
+
+<ng-template #noWorkersContent>
+  <ng-container *ngTemplateOutlet="noWorkersTemplate || defaultNoWorkers"></ng-container>
+</ng-template>
+
+<ng-template #defaultNoWorkers>
+  <p class="text-muted p-2 fst-italic">No workers available to display.</p>
+</ng-template>

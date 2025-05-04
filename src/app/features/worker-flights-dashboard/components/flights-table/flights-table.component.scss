@@ -1,0 +1,101 @@
+:host {
+  display: block; // Ensure the component takes up block space
+  --table-active-bg: rgba(13, 110, 253, 0.15); // Lighter blue for active row background
+  --table-hover-bg: rgba(0, 0, 0, 0.06); // Slightly darker hover background
+  --table-stripe-bg: rgba(0, 0, 0, 0.03); // Lighter stripe background
+  --table-border-color: #dee2e6;
+  --table-header-bg: #f8f9fa; // Light grey header
+}
+
+// Wrapper div to handle horizontal scrolling on smaller viewports
+.table-responsive {
+  overflow-x: auto; // Enable horizontal scroll if table width exceeds container
+  width: 100%; // Ensure wrapper takes full available width
+  -webkit-overflow-scrolling: touch; // Smoother scrolling on iOS devices
+}
+
+// Base table styling (using Bootstrap class names as convention)
+.table {
+  width: 100%; // Ensure table tries to take full width of its container
+  margin-bottom: 1rem; // Default space below the table
+  color: #212529; // Default text color
+  vertical-align: middle; // Align cell content vertically centered
+  border-color: var(--table-border-color); // Consistent border color
+
+  // Table header specific styles
+  thead {
+    &.table-light {
+      // Specific style for light header background
+      background-color: var(--table-header-bg);
+      border-bottom-width: 2px; // Thicker bottom border for header
+    }
+
+    th {
+      font-weight: 500; // Medium weight for headers
+      text-align: left; // Align header text left
+      border-bottom-width: 2px;
+    }
+  }
+
+  // General cell (header and data) padding and borders
+  th,
+  td {
+    padding: 0.5rem 0.5rem; // Standard padding for cells
+    border-top: 1px solid var(--table-border-color); // Top border for rows
+    white-space: nowrap; // Prevent text wrapping in cells (optional, adjust if needed)
+  }
+
+  // Striped rows effect (applied via class .table-striped)
+  &.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--table-stripe-bg);
+  }
+
+  // Hover effect on table rows (applied via class .table-hover)
+  &.table-hover tbody tr {
+    transition: background-color 0.1s ease-in-out; // Smooth transition
+
+    &:hover {
+      background-color: var(--table-hover-bg);
+    }
+  }
+
+  // Styling for the active/selected row (applied via class .table-active)
+  tbody tr.table-active {
+    background-color: var(--table-active-bg);
+    // Optionally make text bolder or change color for active row
+    // font-weight: bold;
+    color: #000; // Ensure text remains readable
+  }
+}
+
+// Compact table variant (applied via class .table-sm)
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem 0.4rem; // Reduce padding for a more compact look
+}
+
+// Table caption styling (applied via class .caption-top)
+.caption-top {
+  caption-side: top; // Position caption above the table
+
+  caption {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: #6c757d; // Muted text color for caption
+    text-align: left;
+  }
+}
+
+
+// Utility classes used in the template's fallback message
+.text-muted {
+  color: var(--text-muted-color, #6c757d) !important;
+}
+
+.p-2 {
+  padding: 0.5rem !important;
+}
+
+.fst-italic {
+  font-style: italic !important;
+}

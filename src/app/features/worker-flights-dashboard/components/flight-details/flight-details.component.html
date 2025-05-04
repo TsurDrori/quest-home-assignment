@@ -1,0 +1,35 @@
+<div *ngIf="flight; else noFlightSelectedContent" class="flight-details-content">
+  <h4>Flight {{ flight.num }}</h4>
+  <hr>
+  <dl class="row g-2">
+    <dt class="col-5   fw-medium">Plane:</dt>
+    <dd class="col-7">{{ flight.plane }}</dd>
+    <dt class="col-5   fw-medium">Duration:</dt>
+    <dd class="col-7">{{ flight.duration | duration }}</dd>
+
+    <dt class="col-5   fw-medium">Origin Gate:</dt>
+    <dd class="col-7">{{ flight.from_gate }}</dd>
+
+    <dt class="col-5   fw-medium">Destination Gate:</dt>
+    <dd class="col-7">{{ flight.to_gate }}</dd>
+
+    <dt class="col-5   fw-medium">Origin:</dt>
+    <dd class="col-7">{{ flight.from }}</dd>
+
+    <dt class="col-5   fw-medium">Origin Date:</dt>
+    <dd class="col-7">{{ flight.from_date }}</dd>
+    <dt class="col-5   fw-medium">Destination:</dt>
+    <dd class="col-7">{{ flight.to }}</dd>
+
+    <dt class="col-5   fw-medium">Destination Date:</dt>
+    <dd class="col-7">{{ flight.to_date }}</dd>
+  </dl>
+</div>
+
+<ng-template #noFlightSelectedContent>
+  <ng-container *ngTemplateOutlet="noFlightSelectedTemplate || defaultNoFlightSelected"></ng-container>
+</ng-template>
+
+<ng-template #defaultNoFlightSelected>
+  <p class="text-muted p-2 fst-italic">Select a flight from the table to view details.</p>
+</ng-template>
