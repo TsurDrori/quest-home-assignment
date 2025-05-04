@@ -1,52 +1,45 @@
 .list-group-item {
-  cursor: pointer; // Indicate items are interactive
-  // Reset border-radius for items within the group for a connected look
+  cursor: pointer; 
   border-radius: 0;
-  // Remove bottom border for all but the last item
   border-bottom-width: 0;
-  padding: 0.75rem 1rem; // Standard padding
-  // Smooth background transition on hover/active state changes
+  padding: 0.75rem 1rem; 
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, color 0.15s ease-in-out;
 
-  // Style the first item to have rounded top corners matching the container
   &:first-child {
-    border-top-left-radius: inherit; // Inherit from parent (.card -> .list-group) if possible
-    border-top-right-radius: inherit; // Or set explicitly: var(--card-border-radius, 0.25rem);
+    border-top-left-radius: inherit; 
+    border-top-right-radius: inherit; 
   }
 
-  // Style the last item to have rounded bottom corners and restore bottom border
   &:last-child {
     border-bottom-right-radius: inherit;
     border-bottom-left-radius: inherit;
-    border-bottom-width: 1px; // Add border back to the very last item
+    border-bottom-width: 1px; 
   }
 
-  // Hover effect for non-active items
   &:not(.active):hover {
-    background-color: #e9ecef; // Light grey background on hover
+    background-color: #e9ecef; 
     color: #000;
   }
 
-  // Styling for the currently selected ('active') item
   &.active {
-    z-index: 2; // Ensure active item overlaps borders correctly
-    color: #fff; // White text
-    background-color: var(--primary-color, #0d6efd); // Use primary color variable or default
+    z-index: 2; 
+    color: #fff; 
+    background-color: var(--primary-color, #0d6efd); 
     border-color: var(--primary-color, #0d6efd);
-    font-weight: 500; // Slightly bolder text for active item
+    font-weight: 500; 
   }
 }
 
 // Ensure button-specific styles are overridden for list group items acting as buttons
 .list-group-item-action {
-  width: 100%; // Take full width
-  color: #212529; // Default text color
-  text-align: inherit; // Inherit text alignment
+  width: 100%; 
+  color: #212529; 
+  text-align: inherit; 
 
   &:focus,
   &:hover {
-    z-index: 1; // Ensure hover/focus state is visually correct
-    text-decoration: none; // Remove underline
+    z-index: 1; 
+    text-decoration: none; 
   }
 
   &:active {

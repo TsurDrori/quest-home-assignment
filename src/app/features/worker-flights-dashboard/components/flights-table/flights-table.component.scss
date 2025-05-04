@@ -1,38 +1,37 @@
 :host {
-  display: block; // Ensure the component takes up block space
-  --table-active-bg: rgba(13, 110, 253, 0.15); // Lighter blue for active row background
-  --table-hover-bg: rgba(0, 0, 0, 0.06); // Slightly darker hover background
-  --table-stripe-bg: rgba(0, 0, 0, 0.03); // Lighter stripe background
+  display: block; 
+  --table-active-bg: rgba(13, 110, 253, 0.15); 
+  --table-hover-bg: rgba(0, 0, 0, 0.06); 
+  --table-stripe-bg: rgba(0, 0, 0, 0.03); 
   --table-border-color: #dee2e6;
-  --table-header-bg: #f8f9fa; // Light grey header
+  --table-header-bg: #f8f9fa; 
 }
 
 // Wrapper div to handle horizontal scrolling on smaller viewports
 .table-responsive {
-  overflow-x: auto; // Enable horizontal scroll if table width exceeds container
-  width: 100%; // Ensure wrapper takes full available width
-  -webkit-overflow-scrolling: touch; // Smoother scrolling on iOS devices
+  overflow-x: auto; 
+  width: 100%; 
+  -webkit-overflow-scrolling: touch; 
 }
 
-// Base table styling (using Bootstrap class names as convention)
+
 .table {
-  width: 100%; // Ensure table tries to take full width of its container
-  margin-bottom: 1rem; // Default space below the table
-  color: #212529; // Default text color
-  vertical-align: middle; // Align cell content vertically centered
-  border-color: var(--table-border-color); // Consistent border color
+  width: 100%; 
+  margin-bottom: 1rem; 
+  color: #212529; 
+  vertical-align: middle; 
+  border-color: var(--table-border-color); 
 
   // Table header specific styles
   thead {
     &.table-light {
-      // Specific style for light header background
       background-color: var(--table-header-bg);
-      border-bottom-width: 2px; // Thicker bottom border for header
+      border-bottom-width: 2px; 
     }
 
     th {
-      font-weight: 500; // Medium weight for headers
-      text-align: left; // Align header text left
+      font-weight: 500; 
+      text-align: left; 
       border-bottom-width: 2px;
     }
   }
@@ -40,9 +39,9 @@
   // General cell (header and data) padding and borders
   th,
   td {
-    padding: 0.5rem 0.5rem; // Standard padding for cells
-    border-top: 1px solid var(--table-border-color); // Top border for rows
-    white-space: nowrap; // Prevent text wrapping in cells (optional, adjust if needed)
+    padding: 0.5rem 0.5rem; 
+    border-top: 1px solid var(--table-border-color); 
+    white-space: nowrap; 
   }
 
   // Striped rows effect (applied via class .table-striped)
@@ -52,7 +51,7 @@
 
   // Hover effect on table rows (applied via class .table-hover)
   &.table-hover tbody tr {
-    transition: background-color 0.1s ease-in-out; // Smooth transition
+    transition: background-color 0.1s ease-in-out; 
 
     &:hover {
       background-color: var(--table-hover-bg);
@@ -62,32 +61,28 @@
   // Styling for the active/selected row (applied via class .table-active)
   tbody tr.table-active {
     background-color: var(--table-active-bg);
-    // Optionally make text bolder or change color for active row
-    // font-weight: bold;
-    color: #000; // Ensure text remains readable
+    color: #000; 
   }
 }
 
 // Compact table variant (applied via class .table-sm)
 .table-sm th,
 .table-sm td {
-  padding: 0.3rem 0.4rem; // Reduce padding for a more compact look
+  padding: 0.3rem 0.4rem; 
 }
 
 // Table caption styling (applied via class .caption-top)
 .caption-top {
-  caption-side: top; // Position caption above the table
+  caption-side: top; 
 
   caption {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    color: #6c757d; // Muted text color for caption
+    color: #6c757d; 
     text-align: left;
   }
 }
 
-
-// Utility classes used in the template's fallback message
 .text-muted {
   color: var(--text-muted-color, #6c757d) !important;
 }

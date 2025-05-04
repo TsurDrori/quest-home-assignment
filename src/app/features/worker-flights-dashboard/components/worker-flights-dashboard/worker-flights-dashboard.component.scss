@@ -1,24 +1,23 @@
 :host {
-  // Define CSS variables for consistent styling within the component (optional but good practice)
   --card-bg: #ffffff;
   --card-border-color: #dee2e6;
   --card-header-bg: #f8f9fa;
   --text-muted-color: #6c757d;
-  --primary-color: #0d6efd; // Example Bootstrap primary blue
+  --primary-color: #0d6efd; 
   --danger-color: #dc3545;
   --danger-border-color: #f5c2c7;
   --danger-bg-color: #f8d7da;
   --card-border-radius: 0.375rem;
-  --card-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075); // Example shadow
-  --section-gap: 1rem; // Gap between sections
-  --base-padding: 1rem; // Base padding unit
+  --card-box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075); 
+  --section-gap: 1rem; 
+  --base-padding: 1rem; 
 }
 
 // Main container for the dashboard sections
 .dashboard-container {
-  display: flex; // Use flexbox for layout
-  flex-wrap: wrap; // Allow sections to wrap onto the next line on smaller screens
-  gap: var(--section-gap); // Consistent spacing between flex items
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: var(--section-gap); 
 }
 
 // Styling for the individual section cards
@@ -26,87 +25,73 @@
   background-color: var(--card-bg);
   border: 1px solid var(--card-border-color);
   border-radius: var(--card-border-radius);
-  display: flex; // Use flexbox for card internal layout (header, body)
-  flex-direction: column; // Stack header and body vertically
-  flex: 1; // Allow cards to grow and shrink as needed (base size)
-  min-width: 280px; // Minimum width before wrapping occurs
+  display: flex; 
+  flex-direction: column; 
+  flex: 1; 
+  min-width: 280px; 
 
-  // Apply shadow defined in variables (optional)
   &.shadow-sm {
     box-shadow: var(--card-box-shadow);
   }
 
   .card-header {
     background-color: var(--card-header-bg);
-    padding: calc(var(--base-padding) * 0.75) var(--base-padding); // Slightly less vertical padding
+    padding: calc(var(--base-padding) * 0.75) var(--base-padding); 
     border-bottom: 1px solid var(--card-border-color);
-    // Ensure header top corners match card rounding
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
-    display: flex; // Align header content (title, spinner)
-    justify-content: space-between; // Push title left, spinner right
-    align-items: center; // Vertically align items
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
 
     h2 {
-      margin: 0; // Remove default heading margin
-      font-size: 1.2rem; // Slightly smaller heading
-      font-weight: 500; // Medium weight
+      margin: 0; 
+      font-size: 1.2rem; 
+      font-weight: 500; 
     }
   }
 
   .card-body {
     padding: var(--base-padding);
-    flex-grow: 1; // Allow body to take up remaining vertical space in the card
-    // Add vertical scrollbar ONLY if content overflows the card body height
+    flex-grow: 1; 
     overflow-y: auto;
-    // Consider setting a max-height if cards can become excessively tall
-    // max-height: 60vh;
   }
 }
 
 
 .flights-section {
-  flex-basis: 45%; // Flights table takes up ~45% width initially
+  flex-basis: 45%; 
 }
 
-
-
-// Media query for medium-sized screens (e.g., tablets)
 @media (max-width: 992px) {
 
-  // Make flights and details take full width below workers list
   .flights-section,
   .details-section {
     flex-basis: 100%;
-    min-width: 100%; // Ensure they take full width when wrapping
+    min-width: 100%; 
   }
 
   .workers-section {
-    flex-basis: 100%; // Workers list also takes full width
+    flex-basis: 100%;
     min-width: 100%;
   }
 }
 
-// Media query for small screens (e.g., phones)
-// Often the layout is already stacked due to flex-wrap and min-width,
-// but this ensures it if needed, or allows for mobile-specific tweaks.
 @media (max-width: 768px) {
 
-  // Ensure minimum widths don't cause overflow issues on very small screens
   .card {
-    min-width: 95%; // Allow slightly less than full width maybe
+    min-width: 95%; 
   }
 }
 
 
-// --- Utility Styles (used in template) ---
 
-// Error message styling (Bootstrap-like)
+// Error message styling 
 .error-message {
   padding: calc(var(--base-padding) * 0.75) calc(var(--base-padding) * 1.25);
-  margin-bottom: var(--base-padding); // Space below the error message
+  margin-bottom: var(--base-padding); 
   border: 1px solid transparent;
-  border-radius: calc(var(--card-border-radius) * 0.66); // Slightly smaller radius
+  border-radius: calc(var(--card-border-radius) * 0.66); 
 
   &.alert-danger {
     color: var(--danger-color);
@@ -115,7 +100,7 @@
   }
 }
 
-// Loading spinner basic styles (assuming Bootstrap classes are available or defined)
+// Loading spinner basic styles 
 .spinner-border {
   display: inline-block;
   width: 2rem;
@@ -140,7 +125,6 @@
 }
 
 .visually-hidden {
-  // For accessibility text within spinner
   position: absolute !important;
   width: 1px !important;
   height: 1px !important;
@@ -154,7 +138,7 @@
 
 // Text styling utility
 .text-muted {
-  color: var(--text-muted-color) !important; // Use important if overriding framework styles
+  color: var(--text-muted-color) !important; 
 }
 
 .fst-italic {

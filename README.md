@@ -1,59 +1,27 @@
-# WorkerFlightsApp
+# Worker Flights Dashboard - Angular Home Assignment
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
+Angular application displaying worker lists and associated flight details with auto-refresh functionality, built for a Quest home assignment.
 
-## Development server
+## Features Summary
 
-To start a local development server, run:
+- View workers list.
+- View flights table for selected worker (refreshes every 1 min).
+- View details for selected flight.
+- Duration formatted as "Xh Ym".
 
-```bash
-ng serve
-```
+## Prerequisites
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Node.js (LTS):** Includes npm. Verify with `node -v`. ([nodejs.org](https://nodejs.org/))
+- **Angular CLI:** Install globally: `npm install -g @angular/cli`. Verify with `ng version`.
 
-## Code scaffolding
+## Quick Start
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+1.  **Clone:** `git clone <repository_url>`
+2.  **Navigate:** `cd <repository_folder_name>`
+3.  **Install:** `npm install`
+4.  **Run:** `ng serve -o` (App runs at `http://localhost:4200/`)
 
-```bash
-ng generate component component-name
-```
+## Notes
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **CORS Proxy:** implemented Angular's proxy configuration to solve CORS issues when accessing the backend API (http://128.24.65.53:3000) during development. The proxy.conf.json file routes all /api requests through the Angular dev server, removing the /api prefix and modifying request origins to prevent CORS errors. This proxy configuration only works in development mode. In a production environment, either the backend would need CORS headers configured or a server-side proxy would be required.
+- **Styling:** Uses **Bootstrap 5** (via CDN link in `index.html`) for layout and component styling. Minimal custom SCSS is included within components primarily for structural rules (`:host`) or minor tweaks.
